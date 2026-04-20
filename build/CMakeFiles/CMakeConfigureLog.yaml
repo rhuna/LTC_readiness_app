@@ -84,7 +84,7 @@ events:
       The output was:
       0
       MSBuild version 17.14.40+3e7442088 for .NET Framework
-      Build started 4/20/2026 9:45:33 AM.
+      Build started 4/20/2026 9:51:11 AM.
       
       Project "C:\\dev\\LTC_readiness_app\\build\\CMakeFiles\\4.1.1\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
       PrepareForBuild:
@@ -113,7 +113,7 @@ events:
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:00.72
+      Time Elapsed 00:00:00.81
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -1014,8 +1014,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/dev/LTC_readiness_app/build/CMakeFiles/CMakeScratch/TryCompile-o1sohq"
-      binary: "C:/dev/LTC_readiness_app/build/CMakeFiles/CMakeScratch/TryCompile-o1sohq"
+      source: "C:/dev/LTC_readiness_app/build/CMakeFiles/CMakeScratch/TryCompile-7gqqck"
+      binary: "C:/dev/LTC_readiness_app/build/CMakeFiles/CMakeScratch/TryCompile-7gqqck"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -1025,40 +1025,40 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/dev/LTC_readiness_app/build/CMakeFiles/CMakeScratch/TryCompile-o1sohq'
+        Change Dir: 'C:/dev/LTC_readiness_app/build/CMakeFiles/CMakeScratch/TryCompile-7gqqck'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_c1a5d.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_0e5fc.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.14.40+3e7442088 for .NET Framework
-        Build started 4/20/2026 9:45:34 AM.
+        Build started 4/20/2026 9:51:12 AM.
         
-        Project "C:\\dev\\LTC_readiness_app\\build\\CMakeFiles\\CMakeScratch\\TryCompile-o1sohq\\cmTC_c1a5d.vcxproj" on node 1 (default targets).
+        Project "C:\\dev\\LTC_readiness_app\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7gqqck\\cmTC_0e5fc.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_c1a5d.dir\\Debug\\".
+          Creating directory "cmTC_0e5fc.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\dev\\LTC_readiness_app\\build\\CMakeFiles\\CMakeScratch\\TryCompile-o1sohq\\Debug\\".
-          Creating directory "cmTC_c1a5d.dir\\Debug\\cmTC_c1a5d.tlog\\".
+          Creating directory "C:\\dev\\LTC_readiness_app\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7gqqck\\Debug\\".
+          Creating directory "cmTC_0e5fc.dir\\Debug\\cmTC_0e5fc.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_c1a5d.dir\\Debug\\cmTC_c1a5d.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_c1a5d.dir\\Debug\\cmTC_c1a5d.tlog\\unsuccessfulbuild".
+          Creating "cmTC_0e5fc.dir\\Debug\\cmTC_0e5fc.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_0e5fc.dir\\Debug\\cmTC_0e5fc.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Fo"cmTC_c1a5d.dir\\Debug\\\\" /Fd"cmTC_c1a5d.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Fo"cmTC_0e5fc.dir\\Debug\\\\" /Fd"cmTC_0e5fc.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35225 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Fo"cmTC_c1a5d.dir\\Debug\\\\" /Fd"cmTC_c1a5d.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Fo"cmTC_0e5fc.dir\\Debug\\\\" /Fd"cmTC_0e5fc.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
           CMakeCXXCompilerABI.cpp
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\dev\\LTC_readiness_app\\build\\CMakeFiles\\CMakeScratch\\TryCompile-o1sohq\\Debug\\cmTC_c1a5d.exe" /INCREMENTAL /ILK:"cmTC_c1a5d.dir\\Debug\\cmTC_c1a5d.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/dev/LTC_readiness_app/build/CMakeFiles/CMakeScratch/TryCompile-o1sohq/Debug/cmTC_c1a5d.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/dev/LTC_readiness_app/build/CMakeFiles/CMakeScratch/TryCompile-o1sohq/Debug/cmTC_c1a5d.lib" /MACHINE:X64  /machine:x64 cmTC_c1a5d.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_c1a5d.vcxproj -> C:\\dev\\LTC_readiness_app\\build\\CMakeFiles\\CMakeScratch\\TryCompile-o1sohq\\Debug\\cmTC_c1a5d.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\dev\\LTC_readiness_app\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7gqqck\\Debug\\cmTC_0e5fc.exe" /INCREMENTAL /ILK:"cmTC_0e5fc.dir\\Debug\\cmTC_0e5fc.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/dev/LTC_readiness_app/build/CMakeFiles/CMakeScratch/TryCompile-7gqqck/Debug/cmTC_0e5fc.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/dev/LTC_readiness_app/build/CMakeFiles/CMakeScratch/TryCompile-7gqqck/Debug/cmTC_0e5fc.lib" /MACHINE:X64  /machine:x64 cmTC_0e5fc.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_0e5fc.vcxproj -> C:\\dev\\LTC_readiness_app\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7gqqck\\Debug\\cmTC_0e5fc.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_c1a5d.dir\\Debug\\cmTC_c1a5d.tlog\\unsuccessfulbuild".
-          Touching "cmTC_c1a5d.dir\\Debug\\cmTC_c1a5d.tlog\\cmTC_c1a5d.lastbuildstate".
-        Done Building Project "C:\\dev\\LTC_readiness_app\\build\\CMakeFiles\\CMakeScratch\\TryCompile-o1sohq\\cmTC_c1a5d.vcxproj" (default targets).
+          Deleting file "cmTC_0e5fc.dir\\Debug\\cmTC_0e5fc.tlog\\unsuccessfulbuild".
+          Touching "cmTC_0e5fc.dir\\Debug\\cmTC_0e5fc.tlog\\cmTC_0e5fc.lastbuildstate".
+        Done Building Project "C:\\dev\\LTC_readiness_app\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7gqqck\\cmTC_0e5fc.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.70
+        Time Elapsed 00:00:01.35
         
       exitCode: 0
   -

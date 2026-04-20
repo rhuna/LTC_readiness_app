@@ -20,6 +20,7 @@ namespace ltc
         static constexpr int ID_BTN_ADD_SEED = 104;
         static constexpr int ID_BTN_SAVE = 105;
         static constexpr int ID_BTN_REFRESH = 106;
+        static constexpr int ID_SUMMARY_BOX = 107;
 
         static LRESULT CALLBACK WindowProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
         LRESULT HandleMessage(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
@@ -28,16 +29,23 @@ namespace ltc
         void LayoutControls(HWND hwnd);
         void PopulateNavigation();
         void PopulateRecords();
+        void UpdateSummaryView();
+        void UpdateWindowTitle();
         void UpdateDetailView();
         void AddQuickSeedItem();
         ModuleType GetSelectedModule() const;
         int GetSelectedRecordIndexForModule() const;
         std::wstring BuildDetailText(const Record& record) const;
+        std::wstring BuildSummaryText() const;
+        bool IsOverdue(const Record& record) const;
+        bool IsHighPriority(const Record& record) const;
+        int CalculateReadinessPercent(const std::vector<const Record*>& filtered) const;
 
         HWND m_hwnd = nullptr;
         HWND m_navList = nullptr;
         HWND m_recordList = nullptr;
         HWND m_detailBox = nullptr;
+        HWND m_summaryBox = nullptr;
         HWND m_btnAddSeed = nullptr;
         HWND m_btnSave = nullptr;
         HWND m_btnRefresh = nullptr;

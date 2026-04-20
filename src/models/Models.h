@@ -22,6 +22,8 @@ namespace ltc
         std::wstring owner;
         std::wstring status;
         std::wstring dueDate;
+        std::wstring priority;
+        std::wstring evidenceStatus;
         std::wstring tags;
         std::wstring notes;
     };

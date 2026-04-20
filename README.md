@@ -11,6 +11,7 @@ This starter repo gives you a Windows application that tracks:
 - Audit tasks and owners
 - QAPI items and follow-up status
 - Mock survey preparation items
+- Priority and evidence readiness for each item
 
 It is intentionally designed as a practical foundation you can keep extending.
 
@@ -68,12 +69,26 @@ The current UI includes:
 - A center list showing records for the selected module
 - A right detail panel showing the selected record
 - Toolbar buttons to add seed data, save, and refresh
+- A dashboard summary panel with readiness indicators
+- Per-record priority and evidence status
+- Overdue tracking based on due dates
+
+## v4 additions
+
+- Added `priority` and `evidenceStatus` to the record model
+- Expanded seeded data with more realistic survey-readiness items
+- Added backward-compatible loading for older data files
+- Upgraded the record grid to show priority and evidence columns
+- Added estimated readiness percentage in the summary panel
+- Added overdue and high-priority counts in the summary panel
+- Added overdue visibility in the detail panel
+- Updated quick-add items so they include priority and evidence defaults
 
 ## Next upgrades I would build on top of this
 
 - True add/edit dialogs for each module
 - Search and filtering by tag, owner, due date, and status
-- Dashboard metrics and overdue indicators
+- Dashboard metrics with color-coded risk indicators
 - Evidence/document attachment tracking
 - Survey deficiency drill-down
 - Calendar reminders

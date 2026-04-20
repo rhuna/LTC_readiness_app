@@ -1,6 +1,8 @@
 #include "DataStore.h"
 
+#include <filesystem>
 #include <fstream>
+#include <locale>
 #include <sstream>
 
 namespace ltc
@@ -18,13 +20,13 @@ namespace ltc
             return value;
         }
 
-        std::vector<std::wstring> Split(const std::wstring& line, wchar_t delimiter)
+        std::vector<std::wstring> Split(const std::wstring& value, wchar_t delimiter)
         {
             std::vector<std::wstring> parts;
             std::wstring current;
             bool escaped = false;
 
-            for (wchar_t ch : line)
+            for (const wchar_t ch : value)
             {
                 if (escaped)
                 {
@@ -89,7 +91,7 @@ namespace ltc
             }
 
             const auto parts = Split(line, L'|');
-            if (parts.size() != 7)
+            if (parts.size() != 7 && parts.size() != 9)
             {
                 continue;
             }
@@ -101,7 +103,19 @@ namespace ltc
             record.owner = Unescape(parts[3]);
             record.status = Unescape(parts[4]);
             record.dueDate = Unescape(parts[5]);
-            record.tags = Unescape(parts[6]);
+
+            if (parts.size() == 9)
+            {
+                record.priority = Unescape(parts[6]);
+                record.evidenceStatus = Unescape(parts[7]);
+                record.tags = Unescape(parts[8]);
+            }
+            else
+            {
+                record.priority = L"Medium";
+                record.evidenceStatus = L"Needs Collection";
+                record.tags = Unescape(parts[6]);
+            }
 
             if (!std::getline(input, line))
             {
@@ -147,6 +161,8 @@ namespace ltc
                 << Escape(record.owner) << L"|"
                 << Escape(record.status) << L"|"
                 << Escape(record.dueDate) << L"|"
+                << Escape(record.priority) << L"|"
+                << Escape(record.evidenceStatus) << L"|"
                 << Escape(record.tags) << L"\n";
 
             output << Escape(record.notes) << L"\n";
@@ -165,6 +181,8 @@ namespace ltc
                        std::wstring owner,
                        std::wstring status,
                        std::wstring dueDate,
+                       std::wstring priority,
+                       std::wstring evidenceStatus,
                        std::wstring tags,
                        std::wstring notes)
         {
@@ -175,30 +193,60 @@ namespace ltc
             record.owner = std::move(owner);
             record.status = std::move(status);
             record.dueDate = std::move(dueDate);
+            record.priority = std::move(priority);
+            record.evidenceStatus = std::move(evidenceStatus);
             record.tags = std::move(tags);
             record.notes = std::move(notes);
             data.records.push_back(std::move(record));
         };
 
-        add(ModuleType::Tags, L"Infection Control", L"DON", L"Active", L"2026-05-01",
+        add(ModuleType::Tags, L"Infection Control", L"DON", L"Active", L"2026-05-01", L"High", L"On File",
             L"F880; isolation; hand hygiene",
             L"Use this tag to group policy reviews, mock survey checks, and audit findings tied to infection prevention.");
 
-        add(ModuleType::Policies, L"Abuse Prevention Policy Review", L"Administrator", L"Needs Review", L"2026-05-10",
+        add(ModuleType::Policies, L"Abuse Prevention Policy Review", L"Administrator", L"Needs Review", L"2026-05-10", L"High", L"Needs Collection",
             L"abuse; policy; training",
             L"Verify latest revision date, staff acknowledgment, and evidence of annual training completion.");
 
-        add(ModuleType::Audits, L"Medication Cart Storage Audit", L"Unit Manager", L"Open", L"2026-04-28",
+        add(ModuleType::Audits, L"Medication Cart Storage Audit", L"Unit Manager", L"Open", L"2026-04-28", L"High", L"Partial",
             L"med pass; pharmacy; environment",
             L"Check lock compliance, expired meds, unlabeled items, and documentation gaps during random cart rounds.");
 
-        add(ModuleType::QapiItems, L"Falls Reduction Performance Improvement Plan", L"QAPI Chair", L"In Progress", L"2026-05-15",
+        add(ModuleType::QapiItems, L"Falls Reduction Performance Improvement Plan", L"QAPI Chair", L"In Progress", L"2026-05-15", L"High", L"Partial",
             L"falls; QAPI; PIP",
             L"Track baseline fall rate, interventions by unit, education actions, and follow-up results for the QAPI committee.");
 
-        add(ModuleType::MockSurvey, L"Resident Interview Readiness Round", L"Social Services", L"Planned", L"2026-04-30",
+        add(ModuleType::MockSurvey, L"Resident Interview Readiness Round", L"Social Services", L"Planned", L"2026-04-30", L"Medium", L"Needs Collection",
             L"mock survey; interviews; resident rights",
             L"Prepare residents and staff for likely survey interview areas including dignity, call light response, and choice.");
+
+        add(ModuleType::Policies, L"Elopement Response Policy Validation", L"Staff Development", L"Open", L"2026-05-08", L"High", L"Partial",
+            L"elopement; policy; emergency",
+            L"Confirm policy language matches current practice, drill expectations, and staff education records for wander-risk residents.");
+
+        add(ModuleType::Audits, L"Dining Service Observation Audit", L"Dietary Manager", L"In Progress", L"2026-05-03", L"Medium", L"Needs Collection",
+            L"dining; infection control; dignity",
+            L"Observe meal service for resident choice, tray accuracy, sanitation, and positioning support during peak meal periods.");
+
+        add(ModuleType::QapiItems, L"Pressure Injury Prevention Review", L"Wound Nurse", L"Needs Review", L"2026-05-12", L"High", L"Partial",
+            L"skin; QAPI; prevention",
+            L"Review turning compliance, risk scoring completion, mattress assignment, and weekly wound trend discussion notes.");
+
+        add(ModuleType::MockSurvey, L"Medication Pass Mock Observation", L"Consultant Pharmacist", L"Planned", L"2026-05-06", L"High", L"On File",
+            L"mock survey; med pass; F755",
+            L"Run a realistic med pass tracer with infection control, rights of medication administration, and documentation spot checks.");
+
+        add(ModuleType::Audits, L"Call Light Response Time Spot Audit", L"Assistant DON", L"Open", L"2026-04-24", L"High", L"Needs Collection",
+            L"staffing; response; resident rights",
+            L"Measure response times by hall and shift, validate rounding practices, and note barriers that could affect resident interviews.");
+
+        add(ModuleType::QapiItems, L"Weight Loss Trend Follow-Up", L"RD", L"In Progress", L"2026-04-26", L"Medium", L"Partial",
+            L"nutrition; QAPI; weight loss",
+            L"Review residents with significant weight change, interventions, meal intake tracking, and physician/dietitian follow-up.");
+
+        add(ModuleType::Policies, L"Smoking Safety Supervision Review", L"Risk Manager", L"Needs Review", L"2026-04-22", L"Medium", L"Needs Collection",
+            L"smoking; supervision; safety",
+            L"Validate supervision levels, care plan consistency, designated area controls, and staff education records.");
     }
 
     const std::filesystem::path& DataStore::GetPath() const noexcept
@@ -222,28 +270,36 @@ namespace ltc
         result.reserve(value.size());
 
         bool escaped = false;
-        for (wchar_t ch : value)
+        for (const wchar_t ch : value)
         {
             if (escaped)
             {
-                if (ch == L'n')
+                switch (ch)
                 {
+                case L'n':
                     result.push_back(L'\n');
-                }
-                else
-                {
+                    break;
+                case L'|':
+                    result.push_back(L'|');
+                    break;
+                case L'\\':
+                    result.push_back(L'\\');
+                    break;
+                default:
                     result.push_back(ch);
+                    break;
                 }
                 escaped = false;
+                continue;
             }
-            else if (ch == L'\\')
+
+            if (ch == L'\\')
             {
                 escaped = true;
+                continue;
             }
-            else
-            {
-                result.push_back(ch);
-            }
+
+            result.push_back(ch);
         }
 
         return result;
