@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/dev/LTC_readiness_app/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

@@ -1,0 +1,10 @@
+1|0|Infection Control|DON|Active|2026-05-01|F880; isolation; hand hygiene
+Use this tag to group policy reviews, mock survey checks, and audit findings tied to infection prevention.
+2|1|Abuse Prevention Policy Review|Administrator|Needs Review|2026-05-10|abuse; policy; training
+Verify latest revision date, staff acknowledgment, and evidence of annual training completion.
+3|2|Medication Cart Storage Audit|Unit Manager|Open|2026-04-28|med pass; pharmacy; environment
+Check lock compliance, expired meds, unlabeled items, and documentation gaps during random cart rounds.
+4|3|Falls Reduction Performance Improvement Plan|QAPI Chair|In Progress|2026-05-15|falls; QAPI; PIP
+Track baseline fall rate, interventions by unit, education actions, and follow-up results for the QAPI committee.
+5|4|Resident Interview Readiness Round|Social Services|Planned|2026-04-30|mock survey; interviews; resident rights
+Prepare residents and staff for likely survey interview areas including dignity, call light response, and choice.
